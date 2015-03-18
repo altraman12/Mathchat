@@ -1,37 +1,41 @@
-function clearTextbox() {
-    document.getElementById("inputBox").value = "";
-}
+(function () {
+    "use strict";
 
-function send() {
-    document.getElementById("messages").innerHTML += "<br>" + document.getElementById("inputBox").value;
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-}
+    function clearTextbox() {
+        document.getElementById("inputBox").value = "";
+    }
 
-var menuOpen = false;
+    function send() {
+        document.getElementById("messages").innerHTML += "<br>" + document.getElementById("inputBox").value;
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
 
-var main = function () {
-    $('.open').click(function () {
-        if (!menuOpen) {
-            $('.menu').animate({
-                left: '0px'
-            }, 200);
+    var menuOpen = false;
 
-            $('body').animate({
-                left: '200px'
-            }, 200);
-            menuOpen = true;
-        } else {
-            $('.menu').animate({
-                left: '-200px'
-            }, 200);
+    var main = function () {
+        $('.open').click(function () {
+            if (!menuOpen) {
+                $('.menu').animate({
+                    left: '0px'
+                }, 200);
 
-            $('body').animate({
-                left: '0px'
-            }, 200);
-            menuOpen = false;
-        }
-    });
+                $('body').animate({
+                    left: '200px'
+                }, 200);
+                menuOpen = true;
+            } else {
+                $('.menu').animate({
+                    left: '-200px'
+                }, 200);
 
-};
+                $('body').animate({
+                    left: '0px'
+                }, 200);
+                menuOpen = false;
+            }
+        });
 
-$(document).ready(main);
+    };
+
+    $(document).ready(main);
+})();
