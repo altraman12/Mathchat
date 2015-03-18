@@ -1,15 +1,6 @@
 (function () {
     "use strict";
 
-    function clearTextbox() {
-        document.getElementById("inputBox").value = "";
-    }
-
-    function send() {
-        document.getElementById("messages").innerHTML += "<br>" + document.getElementById("inputBox").value;
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-    }
-
     var menuOpen = false;
 
     var main = function () {
@@ -34,7 +25,6 @@
                 menuOpen = false;
             }
         });
-
     };
 
     $(document).ready(main);

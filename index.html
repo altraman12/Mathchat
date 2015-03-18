@@ -1,50 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head> 
+
+<head>
     <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>  
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [['$', '$'],['\\(', '\\)']]
-        }
-      });
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$'],['\\(', '\\)']] } });
     </script>
     <link href='http://fonts.googleapis.com/css?family=Roboto&subset=greek-ext,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
-      
+
     <link rel="stylesheet" href="style.css">
-      <script type="text/javascript" src="chatPage.js"></script>
-      
+    <script type="text/javascript" src="chatPage.js"></script>
+    <script type="text/javascript">
+        function clearTextbox() {
+            document.getElementById("inputBox").value = "";
+        }
+
+        function send() {
+            document.getElementById("messages").innerHTML += "<br>" + document.getElementById("inputBox").value;
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            clearTextbox();
+        }
+    </script>
+
     <div id="title">
-      <ul>
-        <li class="open">≡</li>
-        <li>Mathtastic</li>
-      </ul>
+        <ul>
+            <li class="open">≡</li>
+            <li>Mathtastic</li>
+        </ul>
     </div>
     <div class="menu">
-      <ul>
-        <li><a href="#">Equation</a>
+        <ul>
+            <li><a href="#">Equation</a>
 
-        </li>
-        <li><a href="#">Graph</a>
+            </li>
+            <li><a href="#">Graph</a>
 
-        </li>
-        <li><a href="#">About</a>
+            </li>
+            <li><a href="#">About</a>
 
-        </li>
-      </ul>
+            </li>
+        </ul>
     </div>
-  </head>
-        
-  <body>
+</head>
+
+<body>
     <div id="messages">
-      <p id="test">Random Test Paragraph</p>$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</div>
+        <p id="test">Random Test Paragraph</p>$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</div>
     <div id="textbox">
-      <div id="inputArea">
-        <input type="text" id="inputBox" value="message" onClick="clearTextbox()" onkeydown="if (event.keyCode == 13)send()"/>
-        <input type="button" id="inputButton" value="Send" onClick="send()" />
-      </div>
+        <div id="inputArea">
+            <input type="text" id="inputBox" value="message" onclick="clearTextbox()" onkeydown="if (event.keyCode == 13)send()" />
+            <input type="button" id="inputButton" value="Send" onclick="send()" />
+        </div>
     </div>
-  </body>
+</body>
+
 </html>
