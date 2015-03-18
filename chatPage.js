@@ -1,31 +1,40 @@
-(function () {
+function clearTextbox() {
     "use strict";
+    document.getElementById("inputBox").value = "";
+}
 
-    var menuOpen = false;
+function send() {
+    "use strict";
+    document.getElementById("messages").innerHTML += "<br>" + document.getElementById("inputBox").value;
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    clearTextbox();
+}
 
-    var main = function () {
-        $('.open').click(function () {
-            if (!menuOpen) {
-                $('.menu').animate({
-                    left: '0px'
-                }, 200);
+var menuOpen = false;
 
-                $('body').animate({
-                    left: '200px'
-                }, 200);
-                menuOpen = true;
-            } else {
-                $('.menu').animate({
-                    left: '-200px'
-                }, 200);
+var main = function () {
+    "use strict";
+    $('.open').click(function () {
+        if (!menuOpen) {
+            $('.menu').animate({
+                left: '0px'
+            }, 200);
 
-                $('body').animate({
-                    left: '0px'
-                }, 200);
-                menuOpen = false;
-            }
-        });
-    };
+            $('body').animate({
+                left: '200px'
+            }, 200);
+            menuOpen = true;
+        } else {
+            $('.menu').animate({
+                left: '-200px'
+            }, 200);
 
-    $(document).ready(main);
-})();
+            $('body').animate({
+                left: '0px'
+            }, 200);
+            menuOpen = false;
+        }
+    });
+};
+
+$(document).ready(main);

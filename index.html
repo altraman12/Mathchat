@@ -12,17 +12,6 @@
 
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="chatPage.js"></script>
-    <script type="text/javascript">
-        function clearTextbox() {
-            document.getElementById("inputBox").value = "";
-        }
-
-        function send() {
-            document.getElementById("messages").innerHTML += "<br>" + document.getElementById("inputBox").value;
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-            clearTextbox();
-        }
-    </script>
 
     <div id="title">
         <ul>
