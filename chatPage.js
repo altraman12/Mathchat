@@ -1,3 +1,5 @@
+var spreadSheetBridge;
+
 function clearTextbox() {
     "use strict";
     document.getElementById("inputBox").value = "";
@@ -8,6 +10,8 @@ function send() {
     document.getElementById("messages").innerHTML += "<br>" + document.getElementById("inputBox").value;
     MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
     clearTextbox();
+    spreadSheetBridge = document.getElementById('bridge');
+    spreadSheetBridge.paint();
 }
 
 var menuOpen = false;
