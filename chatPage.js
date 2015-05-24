@@ -29,8 +29,31 @@ function send() {
     MathJax.Hub.Queue(["Text", math3, text3]);
     //MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
     clearTextbox();
+    fireBaseInt();
 }
 
+
+
+
+function fireBaseInt(){
+    
+     
+    var text = document.getElementById('inputBox');
+    var name = getCookie("chatroomName");
+   inviteBaseLobby.push({name: name, text: text}); 
+    
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
 var menuOpen = false;
 
 var main = function () {
